@@ -53,7 +53,7 @@ auditfile="/Library/Preferences/org.{baseline}.audit.plist"
 /usr/bin/plutil -convert xml1 "${auditfile}"
 
 if [[ $(/usr/bin/grep "<key>finding</key>" "${auditfile}" 2> /dev/null) ]] ; then
-	result="$(/usr/bin/defaults read "${auditfile}" 2> /dev/null | /usr/bin/grep -B2 "finding = 1" | /usr/bin/grep "{" | /usr/bin/cut -d '"' -f2 | /usr/bin/wc -l | /usr/bin/tr -d '[:space:]')"
+	result="$(/usr/bin/defaults read "${auditfile}" 2> /dev/null | /usr/bin/grep -B3 "finding = 1" | /usr/bin/grep "{" | /usr/bin/cut -d '"' -f2 | /usr/bin/wc -l | /usr/bin/tr -d '[:space:]')"
 else
 	result=""
 fi
