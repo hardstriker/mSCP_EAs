@@ -36,6 +36,7 @@
 ######
 # Uploaded by Matt Woodruff @ Jamf
 # 18 Nov 2021
+# Last modified 24 Mar 2022
 ######
 #
 ######
@@ -44,12 +45,12 @@
 # https://github.com/usnistgov/macos_security
 #
 # Upload the following text into Jamf Pro Extension Attribute section. 
-# NOTE: Change the following {baseline} text into the baseline name you are using within mSCP. 
 # 
 # Used to gather the list of failed controls from the compliance audit.
 ######
 
-auditfile="/Library/Preferences/org.{baseline}.audit.plist"
+baselineVersion=$(ls -l /Library/Preferences | /usr/bin/grep 'org.*.audit.plist' | /usr/bin/awk '{print $9}')
+auditfile="/Library/Preferences/${baselineVersion}"
 /usr/bin/plutil -convert xml1 "${auditfile}"
 
 if [[ $(/usr/bin/grep "<key>finding</key>" "${auditfile}" 2> /dev/null) ]] ; then
