@@ -11,11 +11,11 @@
 # Written by Jordan Burnette (jburnette@vcu.edu)
 # Last updated 2022.03.24
 ###### Description
-# Lists all items in /Library/Managed Preferences, greps for any plist that starts with org and ends in audit.plist, 
+# Lists all items in /Library/Preferences, greps for any plist that starts with org and ends in audit.plist, 
 # then prints the 9th section of that content as the result for the EA
 ######
 
-result=$(ls -l /Library/Managed\ Preferences | grep "org.*.audit.plist" | awk '{print $9}')
+result=$(ls -l /Library/Preferences | grep "org.*.audit.plist" | awk '{print $9}')
 /bin/echo "<result>$result</result>"
 </scriptContentsMac>
 </extensionAttribute>
