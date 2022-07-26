@@ -5,7 +5,7 @@
 <dataType>string</dataType>
 <description>Displays the name of the baseline file that is being used</description>
 <scriptContentsMac>#!/bin/sh
-#
+######
 # mSCP-BaselineVersion.sh
 # Written by Jordan Burnette (jburnette@vcu.edu)
 # Last modified 2022.07.26 by Jordan Burnette
