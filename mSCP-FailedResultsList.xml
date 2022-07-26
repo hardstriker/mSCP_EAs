@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <extensionAttribute>
 <displayName>mSCP - Failed Result List</displayName>
@@ -8,8 +7,8 @@
 <scriptContentsMac>#!/bin/sh
 ######
 # Original by Matt Woodruff @ Jamf
-# 18 Nov 2021
-# Last modified 22 Apr 2022 by Jordan Burnette
+# 
+# Last modified 2022.07.26 by Jordan Burnette
 ######
 #
 ######
@@ -26,12 +25,12 @@ baselineVersion=$(ls -l /Library/Preferences | /usr/bin/grep 'org.*.audit.plist'
 auditfile="/Library/Preferences/${baselineVersion}"
 /usr/bin/plutil -convert xml1 "${auditfile}"
 
-if [[ $(/usr/bin/grep "<key>finding</key>" "${auditfile}" 2> /dev/null) ]] ; then
+if [[ $(/usr/bin/grep "&lt;key&gt;finding&lt;/result&gt;" "${auditfile}" 2> /dev/null) ]] ; then
 	result="$(/usr/bin/defaults read "${auditfile}" 2> /dev/null | /usr/bin/grep -B3 "finding = 1" | /usr/bin/grep "{" | /usr/bin/cut -d '"' -f2)"
 else
 	result=""
 fi
 
-/bin/echo "<result>${result}</result>"
+/bin/echo "&lt;result&gt;${result}&lt;/result&gt;"
 </scriptContentsMac>
 </extensionAttribute>
