@@ -5,7 +5,7 @@
 <dataType>string</dataType>
 <description>Lists out any exemptions configured in mSCP</description>
 <scriptContentsMac>#!/bin/sh
-#
+######
 # mSCP-BaselineExemptions.sh
 # Written by Jordan Burnette (jburnette@vcu.edu)
 # Date Created 2022.03.31
