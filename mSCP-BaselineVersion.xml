@@ -3,7 +3,7 @@
 <displayName>mSCP - Baseline Version</displayName>
 <displayInCategory>Operating System</displayInCategory>
 <dataType>string</dataType>
-<description>Displays the name of the baseline file that is being used </description>
+<description>Displays the name of the baseline file that is being used</description>
 <scriptContentsMac>#!/bin/sh
 #
 # mSCP-BaselineVersion.sh
